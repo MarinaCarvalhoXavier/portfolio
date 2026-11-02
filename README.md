@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Marina Xavier
 
-## Getting Started
+**Site:** https://marinaxavier.vercel.app
 
-First, run the development server:
+Portfólio feito para a trilha AI Builder do Programa GenAI do iFood. Sou designer, Líder de Produto na CITi e construo com IA.
+
+## Os cases
+
+- **Uma área inteira em cima de IA:** a subárea de Produto da CITi, com agentes em cada etapa, do lead ao desenvolvimento.
+- **Agente de pré-venda:** a IA lê a reunião e aponta os riscos; uma regra fixa decide o preço.
+- **MUSE:** um guarda-roupa com IA que construí do zero ([app](https://muse-app-sooty.vercel.app) · [código](https://github.com/MarinaCarvalhoXavier/muse-app)).
+- **Outros projetos:** [Forma](https://github.com/MarinaCarvalhoXavier/forma), uma curadoria semanal automática e um avaliador de protótipos.
+
+## Como foi feito
+
+- Todo o código foi escrito pelo **Claude Code**, com direção e revisão minhas.
+- **Next.js 15**, TypeScript e CSS, publicado na **Vercel**.
+- **Fundo térmico:** um shader WebGL escrito do zero. O cursor é uma bola térmica que deixa rastro, e o título é desenhado dentro do shader.
+- **Componentes:** MicroSlats e CircularCarousel, do [React Bits](https://reactbits.dev).
+- **Tipografia:** Tanker e Switzer ([Fontshare](https://www.fontshare.com), licença ITF Free Font) e Martian Mono (Google Fonts).
+
+## Rodar localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre em http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Onde mexer
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/page.tsx`: a home (topo, cards dos cases, outros projetos, história e contato).
+- `src/components/CardsCases.tsx`: os cards dos cases e o que cada um prova para a vaga.
+- `src/components/Secao*.tsx`: o conteúdo de cada página de case.
+- `src/components/HeroTermico.tsx`: o efeito térmico do topo.
