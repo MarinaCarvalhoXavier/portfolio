@@ -3,20 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 
 // Título que se escreve letra por letra quando entra na tela.
-// O texto completo fica no aria-label; as letras são só visuais.
+// Mesmo ritmo dos itens de "Minha história": cada linha se escreve inteira em 0,5 s,
+// com 0,1 s de pausa antes da próxima. O texto completo fica no aria-label; as letras são só visuais.
+const DURACAO_LINHA = 500;
+const PAUSA_LINHAS = 100;
 export function TituloDigitado({
   linhas,
   id,
   className = "",
-  velocidade = 12,
 }: {
   linhas: string[];
   id?: string;
   className?: string;
-  velocidade?: number;
 }) {
   const ref = useRef<HTMLHeadingElement>(null);
   const total = linhas.reduce((n, l) => n + l.length, 0);
+  const chave = linhas.join("\n");
   const [visiveis, setVisiveis] = useState(total);
   const [digitando, setDigitando] = useState(false);
 
@@ -30,14 +32,25 @@ export function TituloDigitado({
         if (!e.isIntersecting) return;
         io.disconnect();
         setDigitando(true);
+        // Momento (ms) em que cada letra aparece, a partir do início.
+        const momentos: number[] = [];
+        let t = 0;
+        chave.split("\n").forEach((l, i) => {
+          if (i > 0) t += PAUSA_LINHAS;
+          const passo = DURACAO_LINHA / Math.max(l.length, 1);
+          for (let j = 1; j <= l.length; j++) momentos.push(t + passo * j);
+          t += DURACAO_LINHA;
+        });
+        const inicio = performance.now() + 250;
         let n = 0;
-        const passo = () => {
-          n += 1;
+        const avanca = () => {
+          const agora = performance.now() - inicio;
+          while (n < total && momentos[n] <= agora) n += 1;
           setVisiveis(n);
-          if (n < total) timer = window.setTimeout(passo, velocidade + Math.random() * velocidade * 0.8);
+          if (n < total) timer = window.setTimeout(avanca, Math.max(0, momentos[n] - agora));
           else window.setTimeout(() => setDigitando(false), 1600);
         };
-        timer = window.setTimeout(passo, 250);
+        timer = window.setTimeout(avanca, 250);
       },
       { threshold: 0.5 },
     );
@@ -46,7 +59,7 @@ export function TituloDigitado({
       io.disconnect();
       clearTimeout(timer);
     };
-  }, [total, velocidade]);
+  }, [total, chave]);
 
   let indice = 0;
   return (
