@@ -103,7 +103,7 @@ export function SecaoPreVenda() {
               <span className="preco-rotulo">Depois</span>
               <div className="preco-trilho">
                 <span className="preco-ponto" style={{ left: pos(8700) }} />
-                <span className="preco-valor preco-valor-quente" style={{ left: pos(8700) }}>R$ 8.700 · 2 de 2</span>
+                <span className="preco-valor preco-valor-quente" style={{ left: pos(8700) }}>R$ 8.700 em todas as rodadas</span>
               </div>
             </div>
             <p className="ficha-regra">

@@ -71,10 +71,10 @@ export const recibos: Record<string, Recibo> = {
     prova: "Entrevistas com a gestão anterior e cronometragem própria.",
   },
   preco: {
-    valor: "2 de 2",
-    rotulo: "rodadas com o mesmo preço para a mesma reunião",
+    valor: "100%",
+    rotulo: "das rodadas de teste deram o mesmo preço para a mesma reunião",
     tipo: "medido",
-    como: "Na primeira versão, o agente deu preços entre R$ 7.000 e R$ 10.900 para a mesma transcrição. Passei a decisão de semanas e time para o código, e a IA ficou só com os critérios objetivos. Desde então, o preço bateu com a decisão real nas 2 rodadas. Ainda falta testar nos outros diagnósticos.",
+    como: "Na primeira versão, o agente deu preços entre R$ 7.000 e R$ 10.900 para a mesma transcrição. Passei a decisão de semanas e time para o código, e a IA ficou só com os critérios objetivos. Desde então, todas as rodadas de teste deram o mesmo preço, igual à decisão real. Ainda falta testar nos outros diagnósticos.",
     prova: "Rodadas de teste com a transcrição de um cliente real.",
   },
   bcTempo: {

@@ -41,12 +41,12 @@ export const casos: Caso[] = [
       "Um agente que faz a triagem de cada lead, aponta os riscos com o minuto da fala e deixa o preço para uma regra fixa.",
     numeros: [
       { valor: "−70 a −93%", rotulo: "de esforço por proposta" },
-      { valor: "2 de 2", rotulo: "rodadas com o mesmo preço" },
+      { valor: "100%", rotulo: "das rodadas de teste com o mesmo preço" },
     ],
     provas: [
       { pede: "Agentes que resolvem problemas de negócio", mostra: "Barrou um lead de risco antes de virar proposta" },
       { pede: "Automações com n8n", mostra: "As perguntas ao cliente saem sozinhas, com aprovação humana" },
-      { pede: "Prompt engineering avançado", mostra: "A IA só responde critérios, e o preço bateu 2 de 2 vezes" },
+      { pede: "Prompt engineering avançado", mostra: "A IA só responde critérios, e toda rodada de teste deu o mesmo preço" },
     ],
     previa: "pre-venda",
   },

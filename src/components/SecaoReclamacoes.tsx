@@ -142,12 +142,12 @@ export function SecaoReclamacoes() {
 
       <div className="rec-bloco rec-producao">
         <p className="sobrelinha">Antes de ir para produção</p>
-        <p className="rec-producao-texto">
-          Numa mistura real de reclamações, <strong>estimo que ~3 de cada 4 se resolvam sozinhas</strong>, em segundos: a IA cuida do simples e as pessoas
-          ficam com o arriscado, já com o caso resumido e na fila certa (segurança alimentar, ouvidoria, antifraude). É estimativa: os números acima medem
-          se o agente <strong>segue as regras</strong>, não quanto a empresa economiza. Isso eu mediria num <strong>piloto em ~5% dos casos</strong>, com teto
-          por caso, limite por cliente e um botão de desligar.
-        </p>
+        <h3 className="rec-h3">~3 de cada 4 se resolveriam sozinhas. Por enquanto, é estimativa.</h3>
+        <div className="rec-producao-grade">
+          <div><p className="rotulo-num">A estimativa</p><p>Numa mistura real de reclamações, a IA cuida do simples em segundos. As pessoas ficam com o arriscado, já com o caso resumido e na fila certa: segurança alimentar, ouvidoria, antifraude.</p></div>
+          <div><p className="rotulo-num">O que ainda não sei</p><p>Os números acima medem se o agente <strong>segue as regras</strong>. Não medem quanto a empresa economiza, nem se as regras são boas para o negócio.</p></div>
+          <div><p className="rotulo-num">Como eu mediria</p><p>Um <strong>piloto em ~5% dos casos</strong>, com teto de valor por caso, limite por cliente e um botão de desligar.</p></div>
+        </div>
       </div>
 
       <div className="rec-fundo">

@@ -622,9 +622,12 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 .rec-decisoes li { border-top: 2px solid #ff7a3d; padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
 .rec-decisoes b { font-size: 19px; font-weight: 600; line-height: 1.25; color: var(--tinta); }
 .rec-decisoes p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--tinta-suave); }
-.rec-producao { border: 1px solid rgba(255, 233, 176, 0.3); border-radius: 22px; padding: clamp(20px, 3vw, 36px); background: linear-gradient(180deg, rgba(255, 233, 176, 0.05), transparent); }
-.rec-producao .sobrelinha { color: #ffe9b0; }
-.rec-producao-texto { margin: 12px 0 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; color: var(--tinta-suave); max-width: 64ch; }
+.rec-producao .rec-h3 { max-width: 22ch; }
+.rec-producao-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: clamp(28px, 4vh, 44px); }
+@media (max-width: 900px) { .rec-producao-grade { grid-template-columns: 1fr; } }
+.rec-producao-grade > div { border-top: 2px solid #ff7a3d; padding-top: 14px; }
+.rec-producao-grade .rotulo-num { margin: 0 0 10px; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tinta); }
+.rec-producao-grade p:not(.rotulo-num) { margin: 0; font-size: 16px; line-height: 1.55; color: var(--tinta-suave); max-width: 40ch; }
 .rec-fundo { margin-top: clamp(48px, 8vh, 88px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(255, 243, 230, 0.14); }
 @media (max-width: 900px) { .rec-fundo { grid-template-columns: 1fr; } }
 .rec-fundo a { display: flex; flex-direction: column; gap: 6px; padding: 22px 22px 22px 0; text-decoration: none; color: var(--tinta); font-family: var(--f-titulo), sans-serif; font-size: 30px; text-transform: uppercase; border-bottom: 1px solid rgba(255, 243, 230, 0.14); transition: color .2s; }
