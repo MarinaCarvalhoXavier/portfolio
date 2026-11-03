@@ -8,6 +8,7 @@ type Caso = {
   slug: string;
   chapeu: string;
   titulo: string;
+  tituloLongo?: boolean; // título que quebra em 3 linhas: fica um pouco menor para o card caber em telas baixas
   descricao: string;
   numeros: Numero[];
   provas: Prova[];
@@ -54,6 +55,7 @@ export const casos: Caso[] = [
     slug: "reclamacoes",
     chapeu: "Case · Agente de reclamações de delivery",
     titulo: "Um agente que sabe quando chamar alguém",
+    tituloLongo: true,
     descricao:
       "Reclamações de delivery: a IA lê, uma regra decide o reembolso e uma pessoa entra quando o risco é alto. 97 de 100 decisões certas em casos que a IA nunca viu.",
     numeros: [],
@@ -141,7 +143,7 @@ export function CardsCases() {
               <p className="sobrelinha">
                 {String(i + 1).padStart(2, "0")} / {String(casos.length).padStart(2, "0")} · {c.chapeu}
               </p>
-              <h2 className="card-titulo">{c.titulo}</h2>
+              <h2 className={c.tituloLongo ? "card-titulo longo" : "card-titulo"}>{c.titulo}</h2>
               <p className="card-descricao">{c.descricao}</p>
             </div>
             <div className="card-provas">
