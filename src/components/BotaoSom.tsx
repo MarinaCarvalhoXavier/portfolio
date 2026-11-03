@@ -1,17 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { carregarSom, ligarSom, tocarClique } from "@/lib/som";
+import { carregarSom, ligarSom, tocar, tipoDoAlvo } from "@/lib/som";
 
-// Botão de som da navbar. Desligado por padrão. Com o som ligado, links e botões fazem um clique curto.
+// Botão de som da navbar. Desligado por padrão. Com o som ligado, cada tipo de link/botão tem seu som (ver lib/som.ts).
 export function BotaoSom() {
   const [ligado, setLigado] = useState(false);
 
   useEffect(() => {
     setLigado(carregarSom());
     const aoClicar = (e: MouseEvent) => {
-      const alvo = (e.target as HTMLElement | null)?.closest("a, button");
-      if (alvo && !alvo.classList.contains("botao-som")) tocarClique();
+      const alvo = (e.target as HTMLElement | null)?.closest<HTMLElement>("a, button");
+      if (alvo && !alvo.classList.contains("botao-som")) tocar(tipoDoAlvo(alvo));
     };
     document.addEventListener("click", aoClicar, true);
     return () => document.removeEventListener("click", aoClicar, true);
