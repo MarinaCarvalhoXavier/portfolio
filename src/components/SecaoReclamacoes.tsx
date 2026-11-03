@@ -141,12 +141,23 @@ export function SecaoReclamacoes() {
       </div>
 
       <div className="rec-bloco rec-producao">
-        <p className="sobrelinha">Antes de ir para produção</p>
-        <h3 className="rec-h3">~3 de cada 4 se resolveriam sozinhas. Por enquanto, é estimativa.</h3>
-        <div className="rec-producao-grade">
-          <div><p className="rotulo-num">A estimativa</p><p>Numa mistura real de reclamações, a IA cuida do simples em segundos. As pessoas ficam com o arriscado, já com o caso resumido e na fila certa: segurança alimentar, ouvidoria, antifraude.</p></div>
-          <div><p className="rotulo-num">O que ainda não sei</p><p>Os números acima medem se o agente <strong>segue as regras</strong>. Não medem quanto a empresa economiza, nem se as regras são boas para o negócio.</p></div>
-          <div><p className="rotulo-num">Como eu mediria</p><p>Um <strong>piloto em ~5% dos casos</strong>, com teto de valor por caso, limite por cliente e um botão de desligar.</p></div>
+        <div className="rec-prod-num">
+          <p className="sobrelinha">Antes de ir para produção</p>
+          <p className="rec-prod-grande" aria-label="cerca de 3 em cada 4">~3/4</p>
+          <p className="rec-prod-leg">das reclamações se resolveriam sozinhas, em segundos. <span>Estimativa, não medição.</span></p>
+        </div>
+        <div className="rec-prod-lado">
+          <p className="rec-prod-intro">A IA cuida do simples. As pessoas ficam com o arriscado, já com o caso resumido e na fila certa: segurança alimentar, ouvidoria, antifraude.</p>
+          <dl className="rec-prod-medida">
+            <div><dt>Já medido</dt><dd>se o agente <strong>segue as regras</strong> (os números acima)</dd></div>
+            <div className="falta"><dt>Ainda não</dt><dd>quanto a empresa economiza e se as regras são boas para o negócio</dd></div>
+          </dl>
+          <p className="rec-prod-passo">Como eu mediria: um <strong>piloto em ~5% dos casos</strong>, com</p>
+          <ul className="rec-prod-travas">
+            <li>teto de valor por caso</li>
+            <li>limite por cliente</li>
+            <li>botão de desligar</li>
+          </ul>
         </div>
       </div>
 

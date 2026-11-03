@@ -36,10 +36,10 @@ const construi = [
   {
     nome: "Perguntas ao cliente",
     etapa: "Pendências",
-    entra: "O formulário do gerente de contas",
-    faz: "Escreve a mensagem com as perguntas para o cliente. Uma pessoa aprova por e-mail antes de enviar.",
-    sai: "Mensagem pronta no WhatsApp e lead registrado no painel",
-    com: "n8n · Claude · Sheets · Gmail",
+    entra: "A página do lead no Notion, com a transcrição e as respostas",
+    faz: "Escreve as perguntas e a mensagem para o cliente; o gerente revisa e envia. Saiu da planilha e do e-mail para o Notion, onde o time já trabalha: ferramenta nova cai em esquecimento.",
+    sai: "Mensagem pronta no WhatsApp e tudo registrado na página do lead",
+    com: "n8n · Claude · Notion",
   },
   {
     nome: "Business Case e PRD",

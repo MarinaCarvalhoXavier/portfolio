@@ -110,20 +110,20 @@ export const capitulos: Caso[] = [
     problema:
       "Cada lead era precificado à mão, por uma pessoa, sem padrão. O escopo mal feito virava projeto que estourava prazo e deixava trabalho sem cobrar.",
     construi:
-      "Skills de triagem e precificação com Claude. A triagem lê a transcrição da reunião e aponta os gargalos, cada um com o minuto em que o cliente falou. O preço sai de uma regra fixa. Na v2, um fluxo no n8n leva as perguntas ao cliente e registra tudo numa planilha.",
+      "Skills de triagem e precificação com Claude. A triagem lê a transcrição da reunião e aponta os gargalos, cada um com o minuto em que o cliente falou. O preço sai de uma regra fixa. Depois, um agente no n8n passou a fazer o caminho inteiro dentro do Notion, onde o time já trabalha: triagem, perguntas, preço pela regra e proposta.",
     fluxo: [
       { papel: "pessoa", texto: "Gerente de contas envia a transcrição da reunião" },
       { papel: "ia", texto: "Aponta gargalos e dá o veredito no semáforo" },
       { papel: "regra", texto: "Calcula semanas, time e preço" },
-      { papel: "pessoa", texto: "Produto aprova por e-mail" },
+      { papel: "pessoa", texto: "Líder de Produto aprova no Notion" },
       { papel: "ia", texto: "Escreve as perguntas ao cliente" },
     ],
     decisao:
       "A IA não decide o preço. Ela responde a critérios objetivos, e o código faz a conta.",
     metricas: [{ recibo: "esforco" }, { recibo: "contratos" }, { recibo: "atrasos" }, { recibo: "preco" }],
     nota:
-      "O gargalo que sobrou é a espera pela resposta do cliente, de 3,3 dias em média. É isso que a v2 ataca, e o piloto ainda está medindo.",
-    stack: ["Claude", "Claude Skills", "n8n", "Google Sheets", "Gmail", "WhatsApp"],
+      "O gargalo que sobrou é a espera pela resposta do cliente: cerca de 3 dias, na estimativa do Comercial.",
+    stack: ["Claude", "Claude Skills", "n8n", "Notion", "WhatsApp"],
   },
   {
     id: "bc-prd",
