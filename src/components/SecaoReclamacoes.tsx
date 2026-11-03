@@ -149,6 +149,7 @@ export function SecaoReclamacoes() {
         <a href={`${DEMO}/?aba=avaliacao`} target="_blank" rel="noreferrer">Avaliação completa ↗<small>todos os números, onde errou, a evolução v1 → v7</small></a>
         <a href={`${DEMO}/?aba=como-funciona`} target="_blank" rel="noreferrer">Por dentro ↗<small>as regras, os gatilhos, o JSON e os prompts na íntegra</small></a>
         <a href={`${DEMO}/?aba=decisoes`} target="_blank" rel="noreferrer">Diário de decisões ↗<small>da discovery à v7, com cada erro e o que mudou</small></a>
+        <a href="https://github.com/MarinaCarvalhoXavier/bandeja-agente" target="_blank" rel="noreferrer">Código ↗<small>o repositório: regra, prompts, os 208 casos e cada rodada de avaliação</small></a>
       </div>
     </section>
   );

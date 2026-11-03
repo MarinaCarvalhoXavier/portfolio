@@ -625,11 +625,12 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 .rec-producao { border: 1px solid rgba(255, 233, 176, 0.3); border-radius: 22px; padding: clamp(20px, 3vw, 36px); background: linear-gradient(180deg, rgba(255, 233, 176, 0.05), transparent); }
 .rec-producao .sobrelinha { color: #ffe9b0; }
 .rec-producao-texto { margin: 12px 0 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; color: var(--tinta-suave); max-width: 64ch; }
-.rec-fundo { margin-top: clamp(48px, 8vh, 88px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgba(255, 243, 230, 0.14); }
+.rec-fundo { margin-top: clamp(48px, 8vh, 88px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(255, 243, 230, 0.14); }
 @media (max-width: 900px) { .rec-fundo { grid-template-columns: 1fr; } }
 .rec-fundo a { display: flex; flex-direction: column; gap: 6px; padding: 22px 22px 22px 0; text-decoration: none; color: var(--tinta); font-family: var(--f-titulo), sans-serif; font-size: 30px; text-transform: uppercase; border-bottom: 1px solid rgba(255, 243, 230, 0.14); transition: color .2s; }
 .rec-fundo a + a { padding-left: 22px; border-left: 1px solid rgba(255, 243, 230, 0.14); }
 @media (max-width: 900px) { .rec-fundo a + a { padding-left: 0; border-left: 0; } }
+@media (min-width: 901px) and (max-width: 1200px) { .rec-fundo { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rec-fundo a:nth-child(3) { padding-left: 0; border-left: 0; } }
 .rec-fundo a:hover { color: #ff7a3d; }
 .rec-fundo small { font-family: var(--f-sans), sans-serif; font-size: 14px; text-transform: none; color: var(--tinta-suave); line-height: 1.4; }
 .rec-base { margin-top: 22px; color: var(--tinta); }
