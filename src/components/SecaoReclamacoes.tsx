@@ -52,6 +52,11 @@ export function SecaoReclamacoes() {
       if (e.source !== frame.current?.contentWindow) return;
       if (e.data?.tipo === "bandeja-altura") setAltura(Math.max(320, e.data.altura));
       if (e.data?.tipo === "bandeja-pronta") mandarViewport();
+      // Ao escolher uma reclamação, traz o palco da demo para a tela se ele estiver fora dela (comum no celular).
+      if (e.data?.tipo === "bandeja-rolar" && frame.current) {
+        const y = frame.current.getBoundingClientRect().top + window.scrollY + (Number(e.data.topo) || 0) - 12;
+        if (Math.abs(y - window.scrollY) > 80) window.scrollTo({ top: y, behavior: "smooth" });
+      }
     };
     window.addEventListener("message", ouvir);
     window.addEventListener("resize", mandarViewport);
