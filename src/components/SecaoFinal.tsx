@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TituloDigitado } from "@/components/TituloDigitado";
 import { Pilula } from "@/components/Pilula";
 
@@ -17,6 +17,19 @@ const fichaFixa = [
 const LINKEDIN = "https://www.linkedin.com/in/marina-xavier-109bb7287/";
 
 export function SecaoHistoria() {
+  // Os itens ao lado da citação entram um por um, vindo da direita (como os cards do template Optimus do v0).
+  const fatos = useRef<HTMLDListElement>(null);
+  useEffect(() => {
+    const el = fatos.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.classList.add("anima");
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add("ativa"); io.disconnect(); }
+    }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section id="historia" className="historia" aria-labelledby="historia-titulo" data-calor-linha="topo">
       <div className="pv-cabeca" data-calor-area>
@@ -49,7 +62,7 @@ export function SecaoHistoria() {
           <p className="historia-citacao">
             “Tudo tem que ter um motivo, um teste por trás e uma métrica.”
           </p>
-          <dl className="historia-fatos">
+          <dl ref={fatos} className="historia-fatos">
             <div data-calor-linha="topo">
               <dt>Lidero</dt>
               <dd>A subárea de Produto do CITi: um time de 10 pessoas (2 gerentes, 3 especialistas e 5 analistas)</dd>

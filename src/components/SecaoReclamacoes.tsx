@@ -9,6 +9,23 @@ import { somLigado } from "@/lib/som";
 const DEMO = process.env.NEXT_PUBLIC_DEMO_RECLAMACOES_URL ?? "https://bandeja-demo.vercel.app";
 
 
+// Linha do tempo "Antes de ir para produção": quando entra na tela, a linha anda de 01 até 02
+// e o 02 acende ao ser alcançado. Sem JS ou com movimento reduzido, aparece já no estado final.
+function useTrilha() {
+  const ref = useRef<HTMLOListElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.classList.add("anima");
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add("ativa"); io.disconnect(); }
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
 // Conta de 0 até o valor quando o número entra na tela (mesma animação dos números do case da Área, com decimais).
 function Conta({ ate, casas = 0, antes = "", depois = "" }: { ate: number; casas?: number; antes?: string; depois?: string }) {
   const ref = useRef<HTMLElement>(null);
@@ -45,6 +62,7 @@ function Conta({ ate, casas = 0, antes = "", depois = "" }: { ate: number; casas
 export function SecaoReclamacoes() {
   const [altura, setAltura] = useState(760);
   const frame = useRef<HTMLIFrameElement>(null);
+  const trilha = useTrilha();
 
   useEffect(() => {
     // Manda a altura da janela para a demo: lá dentro o celular se ajusta para caber numa tela.
@@ -145,24 +163,34 @@ export function SecaoReclamacoes() {
       </div>
 
       <div className="rec-bloco rec-producao">
-        <div className="rec-prod-num">
-          <p className="sobrelinha">Antes de ir para produção</p>
-          <p className="rec-prod-grande" aria-label="cerca de 3 em cada 4">~3/4</p>
-          <p className="rec-prod-leg">das reclamações se resolveriam sozinhas, em segundos. <span>Estimativa, não medição.</span></p>
-        </div>
-        <div className="rec-prod-lado">
-          <p className="rec-prod-intro">A IA cuida do simples. As pessoas ficam com o arriscado, já com o caso resumido e na fila certa: segurança alimentar, ouvidoria, antifraude.</p>
-          <dl className="rec-prod-medida">
-            <div><dt>Já medido</dt><dd>se o agente <strong>segue as regras</strong> (os números acima)</dd></div>
-            <div className="falta"><dt>Ainda não</dt><dd>quanto a empresa economiza e se as regras são boas para o negócio</dd></div>
-          </dl>
-          <p className="rec-prod-passo">Como eu mediria: um <strong>piloto em ~5% dos casos</strong>, com</p>
-          <ul className="rec-prod-travas">
-            <li>teto de valor por caso</li>
-            <li>limite por cliente</li>
-            <li>botão de desligar</li>
-          </ul>
-        </div>
+        <p className="sobrelinha">Antes de ir para produção</p>
+        <h3 className="rec-h3">O que já está provado, e o que falta provar.</h3>
+        <ol ref={trilha} className="rec-trilha">
+          <li className="feito">
+            <span className="rec-trilha-marco" aria-hidden="true" />
+            <span className="rotulo-num">01 · feito</span>
+            <b>Segue as regras</b>
+            <p>Em 100 casos novos, <strong>97 decisões certas</strong> sobre quem resolve. É o que os números acima medem.</p>
+          </li>
+          <li className="proximo">
+            <span className="rec-trilha-marco" aria-hidden="true" />
+            <span className="rotulo-num">02 · próximo</span>
+            <b>Piloto em ~5% dos casos</b>
+            <p>Para medir o que ainda não sei: <strong>quanto a empresa economiza</strong> e se as regras são boas para o negócio.</p>
+            <ul className="rec-prod-travas" aria-label="Travas do piloto">
+              <li>teto de valor por caso</li>
+              <li>limite por cliente</li>
+              <li>botão de desligar</li>
+            </ul>
+          </li>
+          <li className="depois">
+            <span className="rec-trilha-marco" aria-hidden="true" />
+            <span className="rotulo-num">03 · se o piloto confirmar</span>
+            <b>~3 de cada 4 resolvidas sozinhas</b>
+            <p>Em segundos. A IA cuida do simples, e as pessoas ficam com o arriscado, já com o caso resumido e na fila certa: segurança alimentar, ouvidoria, antifraude.</p>
+            <span className="rec-trilha-selo">Estimativa, não medição</span>
+          </li>
+        </ol>
       </div>
 
       <div className="rec-fundo">

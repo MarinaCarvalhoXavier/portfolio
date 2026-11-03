@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
 // Projetos menores: 3 cards pequenos que abrem um pop-up com o essencial
@@ -80,6 +80,19 @@ export function OutrosProjetos() {
   const origem = useRef<HTMLButtonElement | null>(null);
   const fechando = useRef(false);
   const [aberto, setAberto] = useState<Projeto | null>(null);
+  const grade = useRef<HTMLUListElement>(null);
+
+  // Os cards sobem um por um, de leve, quando a grade entra na tela.
+  useEffect(() => {
+    const el = grade.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.classList.add("anima");
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add("ativa"); io.disconnect(); }
+    }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const semMovimento = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -132,9 +145,9 @@ export function OutrosProjetos() {
         <h2 id="outros-titulo" className="outros-titulo">Menores, mas também com IA</h2>
       </div>
 
-      <ul className="outros-grade">
-        {projetos.map((p) => (
-          <li key={p.id}>
+      <ul ref={grade} className="outros-grade">
+        {projetos.map((p, i) => (
+          <li key={p.id} style={{ "--i": i } as React.CSSProperties}>
             <button type="button" className="outro-card" onClick={(e) => abrir(p, e.currentTarget)} aria-haspopup="dialog">
               <span className="sobrelinha">{p.etiqueta}</span>
               <span className="outro-titulo">{p.titulo}</span>
