@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { TituloDigitado } from "@/components/TituloDigitado";
+import { somLigado } from "@/lib/som";
 
 // A demo é outro app (agente-reclamacoes/web). Aqui ela entra embutida, no modo ?embed=1.
 // Publicada em https://bandeja-demo.vercel.app (local: rodar a demo e definir NEXT_PUBLIC_DEMO_RECLAMACOES_URL=http://localhost:3177).
@@ -47,11 +48,13 @@ export function SecaoReclamacoes() {
 
   useEffect(() => {
     // Manda a altura da janela para a demo: lá dentro o celular se ajusta para caber numa tela.
+    // Repassa o botão de som do portfólio para a demo (ela não lê o que este site salvou).
+    const mandarSom = () => frame.current?.contentWindow?.postMessage({ tipo: "bandeja-som", ligado: somLigado() }, "*");
     const mandarViewport = () => frame.current?.contentWindow?.postMessage({ tipo: "bandeja-viewport", altura: window.innerHeight }, "*");
     const ouvir = (e: MessageEvent) => {
       if (e.source !== frame.current?.contentWindow) return;
       if (e.data?.tipo === "bandeja-altura") setAltura(Math.max(320, e.data.altura));
-      if (e.data?.tipo === "bandeja-pronta") mandarViewport();
+      if (e.data?.tipo === "bandeja-pronta") { mandarViewport(); mandarSom(); }
       // Ao escolher uma reclamação, traz o palco da demo para a tela se ele estiver fora dela (comum no celular).
       if (e.data?.tipo === "bandeja-rolar" && frame.current) {
         const y = frame.current.getBoundingClientRect().top + window.scrollY + (Number(e.data.topo) || 0) - 12;
@@ -60,7 +63,8 @@ export function SecaoReclamacoes() {
     };
     window.addEventListener("message", ouvir);
     window.addEventListener("resize", mandarViewport);
-    return () => { window.removeEventListener("message", ouvir); window.removeEventListener("resize", mandarViewport); };
+    window.addEventListener("som-mudou", mandarSom);
+    return () => { window.removeEventListener("message", ouvir); window.removeEventListener("resize", mandarViewport); window.removeEventListener("som-mudou", mandarSom); };
   }, []);
 
   return (

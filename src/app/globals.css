@@ -702,3 +702,7 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 
 /* Título longo (3 linhas) fica um pouco menor para o card caber nas mesmas telas que os outros */
 @media (min-width: 901px) { .card-titulo.longo { font-size: clamp(28px, min(4.4vw, 8vh), 76px); } }
+/* Botão de som na navbar (desligado por padrão) */
+.botao-som { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-right: -16px; border-radius: 50%; border: 1px solid rgba(255, 243, 230, 0.25); background: transparent; color: var(--tinta-suave); cursor: pointer; transition: color 200ms, border-color 200ms; flex: none; }
+.botao-som:hover { color: var(--tinta); border-color: rgba(255, 243, 230, 0.5); }
+.botao-som[aria-pressed="true"] { color: #ff7a3d; border-color: #ff7a3d; }

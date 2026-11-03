@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Pilula } from "@/components/Pilula";
+import { BotaoSom } from "@/components/BotaoSom";
 
 // Menu único do site, com fundo de vidro em todas as telas;
 // o item da tela atual fica marcado (aria-current).
@@ -39,6 +40,7 @@ export function Topo({ pagina = "home", atual }: { pagina?: "home" | "case"; atu
         <Item href={ancora("outros")} rotulo="Outros" secao="outros" />
         <Item href={ancora("historia")} rotulo="Minha história" secao="historia" />
       </nav>
+      <BotaoSom />
       <Pilula href={ancora("contato")}>
         Contato
       </Pilula>
