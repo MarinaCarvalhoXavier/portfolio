@@ -11,7 +11,7 @@ type Caso = {
   descricao: string;
   numeros: Numero[];
   provas: Prova[];
-  previa: "area" | "pre-venda" | "muse";
+  previa: "area" | "pre-venda" | "muse" | "reclamacoes";
 };
 
 export const casos: Caso[] = [
@@ -20,7 +20,7 @@ export const casos: Caso[] = [
     chapeu: "Projeto principal · CITi, 2026",
     titulo: "Uma área inteira em cima de IA",
     descricao:
-      "Criei a subárea de Produto da CITi do zero e coloquei agentes de IA em cada etapa, do lead ao desenvolvimento.",
+      "Criei a subárea de Produto do CITi do zero e coloquei agentes de IA em cada etapa, do lead ao desenvolvimento.",
     numeros: [
       { valor: "12", rotulo: "diagnósticos com IA" },
       { valor: "7", rotulo: "contratos fechados" },
@@ -49,6 +49,20 @@ export const casos: Caso[] = [
       { pede: "Prompt engineering avançado", mostra: "A IA só responde critérios, e o preço bateu 2 de 2 vezes" },
     ],
     previa: "pre-venda",
+  },
+  {
+    slug: "reclamacoes",
+    chapeu: "Case · Agente de reclamações de delivery",
+    titulo: "Um agente que sabe quando chamar alguém",
+    descricao:
+      "Reclamações de delivery: a IA lê, uma regra decide o reembolso e uma pessoa entra quando o risco é alto. 97 de 100 decisões certas em casos que a IA nunca viu.",
+    numeros: [],
+    provas: [
+      { pede: "Agentes que resolvem problemas de negócio", mostra: "~3 de 4 reclamações resolvidas sozinhas; 15 de 15 casos graves com uma pessoa" },
+      { pede: "Dashboards funcionais", mostra: "Painel com os resultados reais de 100 casos de teste novos" },
+      { pede: "Demos construídas do zero em dias", mostra: "Discovery, regras, 208 casos de teste e demo em 3 dias" },
+    ],
+    previa: "reclamacoes",
   },
   {
     slug: "muse",
@@ -88,6 +102,20 @@ function Previa({ tipo }: { tipo: Caso["previa"] }) {
           Sem orçamento <em>40:24</em>
         </span>
         <span className="previa-risco">Dados de saúde de crianças</span>
+      </div>
+    );
+  }
+  if (tipo === "reclamacoes") {
+    return (
+      <div className="previa previa-rec2" aria-hidden="true">
+        {/* Print real da demo (modo foto) + os três cartões dos bastidores flutuando por cima. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/reclamacoes/celular-bandeja.webp" alt="" className="rec2-cel" />
+        <div className="rec2-cartoes">
+          <span style={{ ["--c" as string]: "#b994ff" }}><em>IA</em>Item errado · X-tudo</span>
+          <span style={{ ["--c" as string]: "#ffa477" }}><em>Regra</em>R$ 37,89 ou refazer + cortesia</span>
+          <span style={{ ["--c" as string]: "#7fd49b" }}><em>Automático</em>Resolvido em 6 s, sem fila</span>
+        </div>
       </div>
     );
   }

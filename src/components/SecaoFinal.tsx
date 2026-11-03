@@ -31,7 +31,7 @@ export function SecaoHistoria() {
       <div className="historia-corpo">
         <div className="historia-texto">
           <p>
-            Entrei na CITi para me desenvolver em UX/UI. Logo no começo, ver o que o time de engenharia construía
+            Entrei no CITi para me desenvolver em UX/UI. Logo no começo, ver o que o time de engenharia construía
             parecia outro mundo: eu não vinha de ensino técnico e não sabia programar.
           </p>
           <p>
@@ -52,7 +52,11 @@ export function SecaoHistoria() {
           <dl className="historia-fatos">
             <div data-calor-linha="topo">
               <dt>Lidero</dt>
-              <dd>A subárea de Produto da CITi: um time de 10 pessoas (2 gerentes, 3 especialistas e 5 analistas)</dd>
+              <dd>A subárea de Produto do CITi: um time de 10 pessoas (2 gerentes, 3 especialistas e 5 analistas)</dd>
+            </div>
+            <div data-calor-linha="topo">
+              <dt>No CITi</dt>
+              <dd>Entrei como Product Designer (jan a jun/2026) e fui promovida a Líder de Produto em jun/2026</dd>
             </div>
             <div data-calor-linha="topo">
               <dt>Antes</dt>
@@ -68,7 +72,7 @@ export function SecaoHistoria() {
             </div>
             <div data-calor-linha="topo">
               <dt>Construo com</dt>
-              <dd>Claude, Claude Code, n8n, Next.js, Supabase</dd>
+              <dd>Claude, Claude Code, n8n, Next.js, Supabase +</dd>
             </div>
           </dl>
         </aside>

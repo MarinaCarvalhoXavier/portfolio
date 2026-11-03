@@ -18,7 +18,7 @@ const mono = Martian_Mono({ variable: "--f-mono", subsets: ["latin"], axes: ["wd
 
 export const metadata: Metadata = {
   title: "Marina Xavier — Produto e IA",
-  description: "Designer que aprendeu a construir. Líder de Produto na CITi, onde criou uma área inteira em cima de IA.",
+  description: "Designer que aprendeu a construir. Líder de Produto no CITi, onde criou uma área inteira em cima de IA.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

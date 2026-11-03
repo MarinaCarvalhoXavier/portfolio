@@ -6,6 +6,7 @@ import { Pilula } from "@/components/Pilula";
 const itensCases = [
   { slug: "area", rotulo: "A área" },
   { slug: "pre-venda", rotulo: "Pré-venda" },
+  { slug: "reclamacoes", rotulo: "Reclamações" },
   { slug: "muse", rotulo: "MUSE" },
 ];
 

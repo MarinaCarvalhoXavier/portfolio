@@ -33,7 +33,7 @@ export default function Home() {
         </div>
 
         <p className="hero-rodape" data-termico>
-          Sou designer e não sabia programar. Hoje lidero a subárea de Produto da CITi, onde agentes de IA fazem
+          Sou designer e não sabia programar. Hoje lidero a subárea de Produto do CITi, onde agentes de IA fazem
           triagem, precificação e documentação, e o time entrega no prazo.
         </p>
       </section>

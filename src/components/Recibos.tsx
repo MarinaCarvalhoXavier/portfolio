@@ -83,7 +83,7 @@ export function RecibosProvider({ children }: { children: React.ReactNode }) {
                 <dd>{r.prova}</dd>
               </div>
             </dl>
-            <p className="recibo-rodape">Números da CITi citados com autorização do CTO.</p>
+            <p className="recibo-rodape">Números do CITi citados com autorização do CTO.</p>
           </>
         )}
       </aside>

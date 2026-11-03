@@ -4,10 +4,11 @@ import { casos } from "@/components/CardsCases";
 import { SecaoArea } from "@/components/SecaoArea";
 import { SecaoPreVenda } from "@/components/SecaoPreVenda";
 import { SecaoMuse } from "@/components/SecaoMuse";
+import { SecaoReclamacoes } from "@/components/SecaoReclamacoes";
 import { CalorNosTitulos } from "@/components/CalorNosTitulos";
 import { Topo } from "@/components/Topo";
 
-const secoes = { area: SecaoArea, "pre-venda": SecaoPreVenda, muse: SecaoMuse } as const;
+const secoes = { area: SecaoArea, "pre-venda": SecaoPreVenda, muse: SecaoMuse, reclamacoes: SecaoReclamacoes } as const;
 
 export function generateStaticParams() {
   return casos.map((c) => ({ slug: c.slug }));

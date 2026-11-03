@@ -39,7 +39,7 @@ export const recibos: Record<string, Recibo> = {
     valor: "[X] pessoas",
     rotulo: "usam as skills hoje ([Y] ao longo da gestão)",
     tipo: "contagem",
-    como: "Contei quem usa as skills no trabalho de hoje. O número entre parênteses inclui duas pessoas que usaram e saíram da CITi durante a gestão.",
+    como: "Contei quem usa as skills no trabalho de hoje. O número entre parênteses inclui duas pessoas que usaram e saíram do CITi durante a gestão.",
     prova: "Time da subárea de Produto e gerentes de contas que recebem as triagens.",
   },
   diagnosticos: {
@@ -47,14 +47,14 @@ export const recibos: Record<string, Recibo> = {
     rotulo: "feitos com as skills desde ago/2026",
     tipo: "contagem",
     como: "Contei todos os diagnósticos de pré-venda que passaram pelas skills de triagem e precificação.",
-    prova: "Propostas no Drive da CITi.",
+    prova: "Propostas no Drive do CITi.",
   },
   contratos: {
     valor: "7 contratos",
     rotulo: "fechados em 12 diagnósticos (R$ 71 mil)",
     tipo: "contagem",
     como: "7 dos 12 diagnósticos viraram contrato. Outros 3 seguem em negociação e 2 não responderam. A receita é a soma dos 7 contratos.",
-    prova: "Propostas e contratos no Drive da CITi.",
+    prova: "Propostas e contratos no Drive do CITi.",
   },
   atrasos: {
     valor: "nenhum atraso",
@@ -96,7 +96,7 @@ export const recibos: Record<string, Recibo> = {
     rotulo: "discoveries viraram contrato de desenvolvimento",
     tipo: "contagem",
     como: "Dos 4 discoveries concluídos com BC e PRD: 1 contrato assinado (R$ 65 mil), 1 em fechamento (R$ 31,5 mil) e 2 em contraproposta. Nenhum foi recusado.",
-    prova: "Contratos no Drive da CITi.",
+    prova: "Contratos no Drive do CITi.",
   },
 };
 
@@ -282,7 +282,7 @@ export const portas: Porta[] = [
     titulo: "Operação AI-native",
     escopo: "CITi · liderança + construção",
     ano: "2026",
-    blurb: "Criei a subárea de Produto da CITi com a IA trabalhando em cada etapa, do lead ao desenvolvimento.",
+    blurb: "Criei a subárea de Produto do CITi com a IA trabalhando em cada etapa, do lead ao desenvolvimento.",
     recibo: "contratos",
     href: "/cases/operacao",
   },
