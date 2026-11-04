@@ -581,7 +581,6 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 .rec-numeros strong { font-family: var(--f-titulo), sans-serif; font-weight: 400; font-size: clamp(48px, 5.4vw, 80px); line-height: .9; color: var(--tinta); }
 .rec-numeros .rotulo-num { font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta); max-width: 26ch; }
 .rec-numeros small { font-size: 14px; line-height: 1.45; color: var(--tinta-suave); max-width: 32ch; }
-.rec-feito { margin: 18px 0 0; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); }
 /* abas simples: a aberta fica laranja como o botão principal; sem brilho, sem subir */
 .rec-aba, .rec-aba:hover:not([aria-selected="true"]), .rec-aba[aria-selected="true"] { transform: none; height: 42px; box-shadow: none; }
 .rec-aba { background: transparent; border: 1px solid rgba(255, 243, 230, 0.22); border-bottom: 0; color: var(--tinta-suave); font-weight: 400; transition: color .15s, border-color .15s, background .15s; }
@@ -681,7 +680,19 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 @media (min-width: 901px) and (max-width: 1200px) { .rec-fundo { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rec-fundo a:nth-child(3) { padding-left: 0; border-left: 0; } }
 .rec-fundo a:hover { color: #ff7a3d; }
 .rec-fundo small { font-family: var(--f-sans), sans-serif; font-size: 14px; text-transform: none; color: var(--tinta-suave); line-height: 1.4; }
-.rec-base { margin-top: 22px; color: var(--tinta); }
+/* Notas abaixo dos números: como medi | em quanto tempo, lado a lado.
+   Divisória do meio: linha laranja com pontas arredondadas. */
+.rec-notas { margin: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.rec-notas > div { padding: 18px 32px 20px 0; }
+.rec-notas > div + div { position: relative; padding: 18px 0 20px 32px; }
+.rec-notas > div + div::before { content: ""; position: absolute; left: -1px; top: 18px; bottom: 20px; width: 2px; border-radius: 999px; background: #ff7a3d; }
+.rec-notas .rotulo-num { margin: 0; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #ff7a3d; }
+.rec-notas p:not(.rotulo-num) { margin: 8px 0 0; font-size: 14px; line-height: 1.55; color: var(--tinta-suave); max-width: 60ch; }
+@media (max-width: 700px) {
+  .rec-notas { grid-template-columns: 1fr; }
+  .rec-notas > div, .rec-notas > div + div { padding: 16px 0; }
+  .rec-notas > div + div::before { left: 0; right: auto; top: -1px; bottom: auto; width: 64px; height: 2px; }
+}
 .rec-resumo { margin: 18px 0 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; color: var(--tinta-suave); max-width: 60ch; }
 .rec-resumo strong { color: var(--tinta); font-weight: 500; }
 .rec-matriz .cel.ok { border-color: rgba(255, 122, 61, 0.6); }
