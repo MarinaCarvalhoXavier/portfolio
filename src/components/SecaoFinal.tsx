@@ -65,7 +65,7 @@ export function SecaoHistoria() {
           <dl ref={fatos} className="historia-fatos">
             <div data-calor-linha="topo">
               <dt>Lidero</dt>
-              <dd>A subárea de Produto do CITi: um time de 10 pessoas (2 gerentes, 3 especialistas e 5 analistas)</dd>
+              <dd>A subárea de Produto do CITi: um time de 8 pessoas hoje (2 gerentes, 1 especialista e 5 analistas), 10 ao longo do semestre</dd>
             </div>
             <div data-calor-linha="topo">
               <dt>No CITi</dt>

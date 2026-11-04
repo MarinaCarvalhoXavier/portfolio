@@ -21,16 +21,16 @@ export const casos: Caso[] = [
     chapeu: "Projeto principal · CITi, 2026",
     titulo: "Uma área inteira em cima de IA",
     descricao:
-      "Criei a subárea de Produto do CITi do zero e coloquei agentes de IA em cada etapa, do lead ao desenvolvimento.",
+      "Criei a subárea de Produto do CITi, o jeito de trabalhar e as skills de IA de cada etapa. Hoje as gerentes conduzem os Discoveries sem mim.",
     numeros: [
-      { valor: "12", rotulo: "diagnósticos com IA" },
-      { valor: "7", rotulo: "contratos fechados" },
-      { valor: "0", rotulo: "projetos atrasados" },
+      { valor: "R$ 116,5 mil", rotulo: "em desenvolvimento vindo de Discovery" },
+      { valor: "4", rotulo: "Discoveries conduzidos sem mim" },
+      { valor: "7", rotulo: "pessoas usam as skills" },
     ],
     provas: [
-      { pede: "Automações que economizaram horas reais", mostra: "−70 a −93% de esforço em cada proposta" },
-      { pede: "Ferramentas internas implantadas", mostra: "Usadas por um time de 10 pessoas" },
-      { pede: "Agentes que resolvem problemas de negócio", mostra: "7 contratos fechados e nenhum projeto atrasado" },
+      { pede: "Ferramentas internas implantadas", mostra: "7 skills de IA em todo Discovery, usadas por 7 pessoas" },
+      { pede: "Automações que economizaram horas reais", mostra: "Business Case e PRD: de ~10 h para escrever a até 2 h para validar" },
+      { pede: "Prompt engineering avançado", mostra: "Um Business Case que se recusa a inventar retorno sem dado medido" },
     ],
     previa: "area",
   },
