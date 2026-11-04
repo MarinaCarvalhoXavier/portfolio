@@ -15,13 +15,13 @@ type Caso = {
   previa: "area" | "pre-venda" | "muse" | "reclamacoes";
 };
 
-export const casos: Caso[] = [
+const listaCasos: Caso[] = [
   {
     slug: "area",
-    chapeu: "Projeto principal · CITi, 2026",
+    chapeu: "Case · A área de Produto",
     titulo: "Uma área inteira em cima de IA",
     descricao:
-      "Criei a subárea de Produto do CITi, o jeito de trabalhar e as skills de IA de cada etapa. Hoje as gerentes conduzem os Discoveries sem mim.",
+      "O agente de pré-venda é uma peça. Este case é o resto: a subárea, as skills de IA de cada etapa e um time que conduz os Discoveries sem mim.",
     numeros: [
       { valor: "R$ 116,5 mil", rotulo: "em desenvolvimento vindo de Discovery" },
       { valor: "4", rotulo: "Discoveries conduzidos sem mim" },
@@ -81,6 +81,11 @@ export const casos: Caso[] = [
     previa: "muse",
   },
 ];
+
+// Ordem dos cases na home, no menu e no "Próximo case": primeiro a prova mais direta do que a vaga pede
+// (o agente em uso), depois o sistema e o time em volta dele.
+export const ordemCasos = ["pre-venda", "area", "reclamacoes", "muse"] as const;
+export const casos: Caso[] = ordemCasos.map((slug) => listaCasos.find((c) => c.slug === slug)!);
 
 function Previa({ tipo }: { tipo: Caso["previa"] }) {
   if (tipo === "area") {

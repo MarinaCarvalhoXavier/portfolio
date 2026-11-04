@@ -171,11 +171,15 @@ export function SecaoArea() {
   return (
     <section id="area" className="area ar" aria-labelledby="area-titulo">
       <div className="area-cabeca" data-calor-area>
-        <p className="sobrelinha">Projeto principal · CITi, 2026</p>
+        <p className="sobrelinha">Case · A área de Produto · CITi, 2026</p>
         <TituloDigitado id="area-titulo" className="area-titulo" linhas={["Montei a área de Produto.", "Hoje ela entrega sem mim."]} />
         <p className="area-lead">
           No CITi, ninguém tinha escrito um Business Case ou um PRD. Criei a subárea de Produto, o jeito de trabalhar e
           as skills de IA que fazem o time entregar no mesmo padrão, comigo na sala ou não.
+        </p>
+        <p className="ar-ponte">
+          O agente de pré-venda é a peça mais visível desse sistema. Este case mostra o resto: como um time inteiro passou
+          a trabalhar assim. <Link href="/cases/pre-venda">Ver o agente primeiro →</Link>
         </p>
       </div>
 

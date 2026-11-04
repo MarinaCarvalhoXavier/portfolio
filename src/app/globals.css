@@ -960,3 +960,8 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 .ar-prd-metrica dd { margin: 0; font-size: 16px; line-height: 1.45; }
 @media (max-width: 600px) { .ar-prd-sumario { columns: 1; } .ar-prd-metrica > div { grid-template-columns: 1fr; gap: 4px; } }
 .ar-citacao-tiago { margin-top: clamp(40px, 7vh, 72px); max-width: 760px; }
+
+/* Ponte para o case de pré-venda, logo abaixo da abertura */
+.ar-ponte { margin-top: 18px; max-width: 560px; padding-left: 14px; border-left: 1px solid rgba(255, 122, 61, 0.6); font-size: 15px; line-height: 1.55; color: var(--tinta-suave); }
+.ar-ponte a { color: #ff9a5c; white-space: nowrap; border-bottom: 1px solid rgba(255, 154, 92, 0.4); transition: color 200ms, border-color 200ms; }
+.ar-ponte a:hover { color: #ffb380; border-color: #ffb380; }

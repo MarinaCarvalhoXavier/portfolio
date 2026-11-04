@@ -5,8 +5,8 @@ import { BotaoSom } from "@/components/BotaoSom";
 // Menu único do site, com fundo de vidro em todas as telas;
 // o item da tela atual fica marcado (aria-current).
 const itensCases = [
-  { slug: "area", rotulo: "A área" },
   { slug: "pre-venda", rotulo: "Pré-venda" },
+  { slug: "area", rotulo: "A área" },
   { slug: "reclamacoes", rotulo: "Reclamações" },
   { slug: "muse", rotulo: "MUSE" },
 ];
