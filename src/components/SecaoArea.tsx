@@ -569,7 +569,7 @@ export function SecaoArea() {
               Pô, foi massa. Acho que deu uma independência maior pros meninos. Tá fluindo mais rápido agora essa fase de
               contrato.
             </blockquote>
-            <figcaption>Gerente de contas do CITi, que recebe o resultado do Discovery para fechar o contrato.</figcaption>
+            <figcaption>Gerente de contas-chave do CITi.</figcaption>
           </figure>
 
           {/* As competências em que criei skills foram as que mais subiram na autoavaliação. */}
