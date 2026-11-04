@@ -145,6 +145,20 @@ const evolucao = [
   { item: "Business Case", valores: [2.6, 3.1, 4.0] },
   { item: "Mapear processos (As-Is e To-Be)", valores: [3.6, 4.3, 4.6] },
 ];
+// Trechos reais de um PRD gerado pela skill (Discovery de 2026, 43 páginas). Nome do cliente omitido.
+const prdSumario = [
+  "Controle do documento", "Sumário executivo", "Contexto & problema", "Objetivos & métricas de sucesso",
+  "Público & jornadas", "Escopo (É / Não É)", "Requisitos funcionais & user stories", "Requisitos de dados",
+  "Requisitos não-funcionais", "Arquitetura, integrações & restrições", "Design & protótipos",
+  "Priorização & faseamento", "Riscos, premissas, dependências & dúvidas", "Critérios de qualidade: Ready, Done & aceite",
+  "Glossário", "Anexos & rastreabilidade",
+];
+const prdAbas = [
+  { id: "sumario", rotulo: "O sumário" },
+  { id: "historia", rotulo: "Uma user story" },
+  { id: "metrica", rotulo: "Uma métrica" },
+] as const;
+
 const pos = (v: number) => `${((v - 1) / 4) * 100}%`;
 const num = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 1 });
 
@@ -152,6 +166,7 @@ export function SecaoArea() {
   const barras = useAoAparecer<HTMLOListElement>();
   const comparacao = useAoAparecer<HTMLDivElement>();
   const curva = useAoAparecer<HTMLDivElement>();
+  const [aba, setAba] = useState<(typeof prdAbas)[number]["id"]>("historia");
 
   return (
     <section id="area" className="area ar" aria-labelledby="area-titulo">
@@ -398,6 +413,95 @@ export function SecaoArea() {
               </div>
             ))}
           </div>
+          {/* Folhear o PRD de verdade: três trechos, sem o nome do cliente. */}
+          <div className="ar-prd">
+            <div className="ar-prd-topo">
+              <p className="rotulo-num">Folheie um PRD gerado pela skill</p>
+              <div className="ar-prd-abas" role="tablist" aria-label="Trechos do PRD">
+                {prdAbas.map((a) => (
+                  <button
+                    key={a.id}
+                    type="button"
+                    role="tab"
+                    id={`ar-prd-aba-${a.id}`}
+                    aria-selected={aba === a.id}
+                    aria-controls="ar-prd-folha"
+                    onClick={() => setAba(a.id)}
+                  >
+                    {a.rotulo}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="ar-prd-folha" id="ar-prd-folha" role="tabpanel" aria-labelledby={`ar-prd-aba-${aba}`}>
+              <p className="ar-prd-cabecalho">
+                <span>Subárea de Produto · Discovery Enterprise</span>
+                <span>PRD · Plataforma de contas a pagar</span>
+              </p>
+              {aba === "sumario" && (
+                <ol className="ar-prd-sumario">
+                  {prdSumario.map((s, i) => (
+                    <li key={s}>
+                      <span>{String(i).padStart(2, "0")}</span>
+                      {s}
+                    </li>
+                  ))}
+                </ol>
+              )}
+              {aba === "historia" && (
+                <div className="ar-prd-historia">
+                  <p className="ar-prd-id">US002 · Épico EP01 · Prioridade: Must</p>
+                  <p className="ar-prd-frase">
+                    Como usuário, quero conversar com as outras equipes dentro de cada conta, para resolver pendências sem
+                    email.
+                  </p>
+                  <p className="ar-prd-sub">Critérios de aceite</p>
+                  <ul>
+                    <li>
+                      <b>Dado</b> uma conta aberta, <b>quando</b> escrevo e envio uma mensagem, <b>então</b> ela aparece na
+                      conversa com meu nome, área e horário para todas as áreas.
+                    </li>
+                    <li>
+                      <b>Dado</b> mensagens novas de outra área, <b>quando</b> abro a barra superior, <b>então</b> o ícone de
+                      conversas mostra a quantidade não lida.
+                    </li>
+                    <li>
+                      <b>Dado</b> o painel de conversas, <b>quando</b> clico em uma conversa, <b>então</b> a conta
+                      correspondente abre na minha área e as mensagens ficam lidas.
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {aba === "metrica" && (
+                <dl className="ar-prd-metrica">
+                  <div>
+                    <dt>Métrica</dt>
+                    <dd>Tempo para montar o pacote de pagamento (pedido, nota e boleto) de cada conta</dd>
+                  </div>
+                  <div>
+                    <dt>Hoje</dt>
+                    <dd>Cerca de 3,5 minutos por nota, validado com o cliente</dd>
+                  </div>
+                  <div>
+                    <dt>Meta</dt>
+                    <dd>Até 0,5 minuto por nota, sobrando só a revisão</dd>
+                  </div>
+                  <div>
+                    <dt>Prazo</dt>
+                    <dd>Ao fim do piloto</dd>
+                  </div>
+                  <div>
+                    <dt>Como medir</dt>
+                    <dd>Horário do primeiro documento até o pacote gerado, registrado no histórico</dd>
+                  </div>
+                </dl>
+              )}
+            </div>
+            <p className="ar-fonte">
+              Trechos reais de um PRD de 43 páginas gerado pela skill num Discovery de 2026. O nome do cliente foi omitido.
+            </p>
+          </div>
+
           <div className="ar-doc-notas">
             <figure className="ar-citacao">
               <blockquote>Sem as horas medidas, projetar retorno “levaria a diretoria a decidir com base em ficção”.</blockquote>
@@ -459,6 +563,14 @@ export function SecaoArea() {
               </p>
             </div>
           </div>
+
+          <figure className="ar-citacao ar-citacao-tiago">
+            <blockquote>
+              Pô, foi massa. Acho que deu uma independência maior pros meninos. Tá fluindo mais rápido agora essa fase de
+              contrato.
+            </blockquote>
+            <figcaption>Gerente de contas do CITi, que recebe o resultado do Discovery para fechar o contrato.</figcaption>
+          </figure>
 
           {/* As competências em que criei skills foram as que mais subiram na autoavaliação. */}
           <div ref={curva} className="ar-evolucao">
