@@ -25,10 +25,10 @@ export const casos: Caso[] = [
     numeros: [
       { valor: "R$ 116,5 mil", rotulo: "em desenvolvimento vindo de Discovery" },
       { valor: "4", rotulo: "Discoveries conduzidos sem mim" },
-      { valor: "7", rotulo: "pessoas usam as skills" },
+      { valor: "8", rotulo: "pessoas usam as skills" },
     ],
     provas: [
-      { pede: "Ferramentas internas implantadas", mostra: "7 skills de IA em todo Discovery, usadas por 7 pessoas" },
+      { pede: "Ferramentas internas implantadas", mostra: "7 skills de IA em todo Discovery, usadas por 8 pessoas" },
       { pede: "Automações que economizaram horas reais", mostra: "Business Case e PRD: de ~10 h para escrever a até 2 h para validar" },
       { pede: "Prompt engineering avançado", mostra: "Um Business Case que se recusa a inventar retorno sem dado medido" },
     ],

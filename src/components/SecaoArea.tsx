@@ -219,10 +219,10 @@ export function SecaoArea() {
             </li>
             <li>
               <strong>
-                <Conta ate={7} />
+                <Conta ate={8} />
               </strong>
               <span className="rotulo-num">pessoas de Produto usam as skills</span>
-              <small>E 5 gerentes de contas recebem o resultado.</small>
+              <small>Contando comigo. E 5 gerentes de contas recebem o resultado.</small>
             </li>
           </ul>
         </div>
