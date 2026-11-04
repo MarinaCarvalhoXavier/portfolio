@@ -85,17 +85,17 @@ export function SecaoPreVenda() {
           <div className="pv-bloco-intro">
           <h3 className="pv-bloco-titulo">O mesmo lead, o mesmo preço</h3>
           <p className="pv-bloco-texto">
-            Na primeira versão, o agente dava preços diferentes para a mesma reunião. Tirei a decisão da IA: ela
-            passou a responder só critérios objetivos, e o código calcula semanas, time e valor.
+            Nos testes do agente, um lead variava entre R$ 8,7 mil e R$ 10,9 mil: “o cliente descreveu o fluxo atual?”
+            era subjetivo para a IA. Agora só conta o que o cliente descreveu por escrito, e o preço parou de variar.
           </p>
           </div>
 
           <div ref={grafico.ref} className="preco" data-visivel={grafico.visivel}>
             <div className="preco-linha">
-              <span className="preco-rotulo">Antes</span>
+              <span className="preco-rotulo">Antes do ajuste</span>
               <div className="preco-trilho">
-                <span className="preco-faixa" style={{ left: pos(7000), width: `calc(${pos(10900)} - ${pos(7000)})` }} />
-                <span className="preco-valor" style={{ left: pos(7000) }}>R$ 7.000</span>
+                <span className="preco-faixa" style={{ left: pos(8700), width: `calc(${pos(10900)} - ${pos(8700)})` }} />
+                <span className="preco-valor" style={{ left: pos(8700) }}>R$ 8.700</span>
                 <span className="preco-valor preco-valor-dir" style={{ left: pos(10900) }}>R$ 10.900</span>
               </div>
             </div>
@@ -107,7 +107,7 @@ export function SecaoPreVenda() {
               </div>
             </div>
             <p className="ficha-regra">
-              R$ 8.700 era a decisão real: 4 pessoas por 4 semanas. Falta testar nos outros diagnósticos.
+              R$ 8.700 é o que a regra manda para esse lead: 4 pessoas por 4 semanas.
             </p>
           </div>
         </article>
