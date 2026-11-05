@@ -60,7 +60,7 @@ export const recibos: Record<string, Recibo> = {
     valor: "nenhum atraso",
     rotulo: "nos projetos fechados, até agora",
     tipo: "contagem",
-    como: "Dos 3 projetos já concluídos, 1 terminou 3 dias antes e 2 no prazo. Os outros 4 estão começando, por isso o \"até agora\". Antes das skills, 3 projetos de 2026 estouraram o prazo em 90%, em média.",
+    como: "Dos 3 projetos já concluídos, 1 terminou 3 dias antes e 2 no prazo. Os outros 4 estão começando, por isso o \"até agora\". Antes das skills, 3 projetos de 2026 estouraram o prazo em ~73%, em média.",
     prova: "Cronogramas dos projetos.",
   },
   esforco: {
