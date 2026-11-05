@@ -37,17 +37,17 @@ export const casos: Caso[] = [
   {
     slug: "pre-venda",
     chapeu: "Case · Agente de pré-venda",
-    titulo: "A IA lê a reunião. A regra decide o preço.",
+    titulo: "O Produto só aprova. O agente faz o resto.",
     descricao:
-      "Um agente que faz a triagem de cada lead, aponta os riscos com o minuto da fala e deixa o preço para uma regra fixa.",
+      "Um agente no Notion leva cada lead da transcrição da reunião à proposta pronta. A IA lê e pergunta, uma regra decide o preço e o Produto só aprova.",
     numeros: [
-      { valor: "−70 a −93%", rotulo: "de esforço por proposta" },
-      { valor: "100%", rotulo: "das rodadas de teste com o mesmo preço" },
+      { valor: "~9 → ~4 dias", rotulo: "até a reunião de proposta" },
+      { valor: "US$ 0,90", rotulo: "de IA por lead · medido" },
     ],
     provas: [
-      { pede: "Agentes que resolvem problemas de negócio", mostra: "Barrou um lead de risco antes de virar proposta" },
-      { pede: "Automações com n8n", mostra: "As perguntas ao cliente saem sozinhas, com aprovação humana" },
-      { pede: "Prompt engineering avançado", mostra: "A IA só responde critérios, e toda rodada de teste deu o mesmo preço" },
+      { pede: "Agentes que resolvem problemas de negócio", mostra: "O preço parou de esperar alguém do Produto ter tempo" },
+      { pede: "Automações com n8n", mostra: "48 nós, disparados pelo Status de cada lead no Notion" },
+      { pede: "Prompt engineering avançado", mostra: "A IA só responde critérios; o código decide o preço" },
     ],
     previa: "pre-venda",
   },
@@ -97,13 +97,8 @@ function Previa({ tipo }: { tipo: Caso["previa"] }) {
   }
   if (tipo === "pre-venda") {
     return (
-      <div className="previa previa-ficha" aria-hidden="true">
-        <span className="ficha-veredito">Voltar ao Comercial</span>
-        <span className="previa-risco">Cliente recusou o discovery</span>
-        <span className="previa-risco">
-          Sem orçamento <em>40:24</em>
-        </span>
-        <span className="previa-risco">Dados de saúde de crianças</span>
+      <div className="previa previa-video" aria-hidden="true">
+        <video src="/pre-venda/raias-vertical.mp4" poster="/pre-venda/raias-vertical-capa.jpg" muted loop playsInline autoPlay preload="metadata" />
       </div>
     );
   }
