@@ -115,7 +115,7 @@ export const capitulos: Caso[] = [
       { papel: "pessoa", texto: "Gerente de contas envia a transcrição da reunião" },
       { papel: "ia", texto: "Aponta gargalos e dá o veredito no semáforo" },
       { papel: "regra", texto: "Calcula semanas, time e preço" },
-      { papel: "pessoa", texto: "Líder de Produto aprova no Notion" },
+      { papel: "pessoa", texto: "Especialista de Produto aprova no Notion" },
       { papel: "ia", texto: "Escreve as perguntas ao cliente" },
     ],
     decisao:

@@ -280,7 +280,7 @@ export function SecaoArea() {
               </li>
             </ul>
           </div>
-          <p className="ar-fonte">Fonte: cronogramas e contratos dos projetos. O atraso do Projeto A é estimativa, por isso o “~”.</p>
+          <p className="ar-fonte">Fonte: cronogramas e contratos dos projetos. O atraso do Projeto A é estimativa, por isso o “~”. O Projeto A começou antes das skills e terminou já com elas: é o D, mais abaixo.</p>
         </div>
 
         {/* O piloto: a decisão de testar antes de escalar, e o que cada falha virou. */}
@@ -561,9 +561,9 @@ export function SecaoArea() {
                 ))}
               </ul>
               <p className="ar-conduzidos-nota">
-                O D é o Projeto A lá de cima. Atrasou porque o cliente só respondia por formulário, e ninguém tinha mapeado
-                isso antes de fechar. Hoje toda proposta tem uma tabela do que precisamos do cliente. Mesmo assim, ele
-                virou contrato de desenvolvimento.
+                O D é o Projeto A lá de cima. Começou antes de as skills ficarem prontas e atrasou por uma dependência do
+                cliente que ninguém tinha mapeado: ele só respondia por formulário. Hoje toda proposta tem uma tabela do que
+                precisamos do cliente. Mesmo assim, ele virou contrato de desenvolvimento.
               </p>
             </div>
           </div>
@@ -635,8 +635,8 @@ export function SecaoArea() {
           <h3 className="ar-h3">O que ainda não funciona.</h3>
           <ul className="ar-falta">
             <li>
-              <b>O preço ainda passa por mim.</b>
-              <p>O agente calcula, mas a aprovação final de cada preço é minha. Enquanto isso não muda, eu sou o gargalo.</p>
+              <b>O preço ainda passa por uma pessoa.</b>
+              <p>O agente calcula, mas cada preço precisa da aprovação do especialista de Produto. É de propósito: quem vende não decide o preço. Mas é o único passo que ainda espera o Produto.</p>
             </li>
             <li>
               <b>O cliente demora a responder.</b>
