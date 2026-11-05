@@ -428,10 +428,16 @@ const MicroSlats = ({
     const container = containerRef.current;
     if (!container) return undefined;
 
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: false, depth: false });
+    // Sem WebGL (aceleração gráfica desligada, modo economia, navegador corporativo), o efeito não aparece em vez de quebrar a página.
+    let renderer;
+    try {
+      renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: false, depth: false });
+    } catch {
+      return undefined;
+    }
     const gl = renderer.gl;
-    if (!renderer.isWebgl2) {
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+    if (!gl || !renderer.isWebgl2) {
+      gl?.getExtension('WEBGL_lose_context')?.loseContext();
       return undefined;
     }
     gl.clearColor(0, 0, 0, 0);
@@ -908,7 +914,7 @@ const MicroSlats = ({
       wakeRef.current = null;
       disposeFluid();
       dispose(fieldTarget);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      gl?.getExtension('WEBGL_lose_context')?.loseContext();
       if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
     };
   }, []);
