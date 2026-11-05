@@ -15,22 +15,22 @@ type Caso = {
   previa: "area" | "pre-venda" | "muse" | "reclamacoes";
 };
 
-export const casos: Caso[] = [
+const listaCasos: Caso[] = [
   {
     slug: "area",
-    chapeu: "Projeto principal · CITi, 2026",
+    chapeu: "Case · A área de Produto",
     titulo: "Uma área inteira em cima de IA",
     descricao:
-      "Criei a subárea de Produto do CITi do zero e coloquei agentes de IA em cada etapa, do lead ao desenvolvimento.",
+      "O agente de pré-venda é uma peça. Este case é o resto: a subárea, as skills de IA de cada etapa e um time que conduz os Discoveries sem mim.",
     numeros: [
-      { valor: "12", rotulo: "diagnósticos com IA" },
-      { valor: "7", rotulo: "contratos fechados" },
-      { valor: "0", rotulo: "projetos atrasados" },
+      { valor: "R$ 116,5 mil", rotulo: "em desenvolvimento vindo de Discovery" },
+      { valor: "4", rotulo: "Discoveries conduzidos sem mim" },
+      { valor: "8", rotulo: "pessoas usam as skills" },
     ],
     provas: [
-      { pede: "Automações que economizaram horas reais", mostra: "−70 a −93% de esforço em cada proposta" },
-      { pede: "Ferramentas internas implantadas", mostra: "Usadas por um time de 10 pessoas" },
-      { pede: "Agentes que resolvem problemas de negócio", mostra: "7 contratos fechados e nenhum projeto atrasado" },
+      { pede: "Ferramentas internas implantadas", mostra: "7 skills de IA em todo Discovery, usadas por 8 pessoas" },
+      { pede: "Automações que economizaram horas reais", mostra: "Business Case e PRD: de ~10 h para escrever a até 2 h para validar" },
+      { pede: "Prompt engineering avançado", mostra: "Um Business Case que se recusa a inventar retorno sem dado medido" },
     ],
     previa: "area",
   },
@@ -81,6 +81,11 @@ export const casos: Caso[] = [
     previa: "muse",
   },
 ];
+
+// Ordem dos cases na home, no menu e no "Próximo case": primeiro a prova mais direta do que a vaga pede
+// (o agente em uso), depois o sistema e o time em volta dele.
+export const ordemCasos = ["pre-venda", "area", "reclamacoes", "muse"] as const;
+export const casos: Caso[] = ordemCasos.map((slug) => listaCasos.find((c) => c.slug === slug)!);
 
 function Previa({ tipo }: { tipo: Caso["previa"] }) {
   if (tipo === "area") {
