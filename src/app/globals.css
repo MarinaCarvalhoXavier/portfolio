@@ -330,9 +330,10 @@ a { color: inherit; text-decoration: none; }
 .previa-risco { width: 100%; display: flex; justify-content: flex-start; align-items: flex-start; gap: 12px; padding: 16px 18px; border-radius: 12px; background: rgba(255, 243, 230, 0.05); font-size: 16px; }
 .previa-risco::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; background: #e2445b; box-shadow: 0 0 12px #e2445b; order: -1; }
 .previa-risco em { margin-left: auto; font-style: normal; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; color: var(--tinta-suave); }
-.previa-video { display: flex; align-items: center; justify-content: center; background: #000; }
-.previa-video video { display: block; width: 100%; height: 100%; object-fit: contain; }
-@media (max-width: 900px) { .previa-video video { max-height: 520px; } }
+/* O vídeo só preenche o espaço do card: quem decide a altura é a coluna de texto (o 4:5 deixava o card mais alto que a tela). */
+.previa-video { position: relative; min-height: 320px; background: #000; }
+.previa-video video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 900px) { .previa-video { min-height: 440px; } }
 .previa-muse { display: flex; align-items: center; justify-content: center; min-height: 420px; }
 .previa-muse img { position: absolute; width: 34%; border-radius: 18px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); transition: transform 500ms cubic-bezier(.2,.8,.2,1); }
 .previa-muse img:nth-child(1) { transform: translateX(-62%) rotate(-9deg); }
