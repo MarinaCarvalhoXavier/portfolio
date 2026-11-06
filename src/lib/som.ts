@@ -57,7 +57,7 @@ function sopro(c: AudioContext, o: { de: number; ate: number; vol: number; dur: 
 }
 
 export function tocar(tipo: TipoSom, forcar = false) {
-  if ((!ligado && !forcar) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!ligado && !forcar) return;
   try {
     ctx ??= new AudioContext();
     if (ctx.state === "suspended") void ctx.resume();

@@ -7,13 +7,6 @@ import { OutrosProjetos } from "@/components/OutrosProjetos";
 import { CalorNosTitulos } from "@/components/CalorNosTitulos";
 import { SecaoHistoria, SecaoContato } from "@/components/SecaoFinal";
 
-// Dias de construção: de 01/11/2026 até a data em que o site é publicado (build estático).
-const INICIO = new Date("2026-11-01T00:00:00-03:00");
-const PUBLICADO = new Date();
-const DIAS = Math.max(1, Math.ceil((PUBLICADO.getTime() - INICIO.getTime()) / 86_400_000));
-const dataCurta = (d: Date) => d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", timeZone: "America/Recife" });
-const FEITO_EM = `${DIAS} ${DIAS === 1 ? "dia" : "dias"} (${dataCurta(INICIO)} a ${dataCurta(PUBLICADO)})`;
-
 export default function Home() {
   return (
     <main>
@@ -41,7 +34,7 @@ export default function Home() {
       <CardsCases />
       <OutrosProjetos />
       <SecaoHistoria />
-      <SecaoContato feitoEm={FEITO_EM} />
+      <SecaoContato />
       <CalorNosTitulos />
     </main>
   );

@@ -6,7 +6,7 @@ import { Pilula } from "@/components/Pilula";
 
 const EMAIL = "marinacvxavier06@gmail.com";
 
-// Ficha técnica. "Feito em" chega pronto da página (calculado na publicação, não no navegador).
+// Ficha técnica do site.
 const fichaFixa = [
   { rotulo: "Código", valor: "Escrito pelo Claude Code, com direção e revisão minhas" },
   { rotulo: "Versões descartadas", valor: "4 antes desta" },
@@ -94,8 +94,8 @@ export function SecaoHistoria() {
   );
 }
 
-export function SecaoContato({ feitoEm }: { feitoEm: string }) {
-  const ficha = [{ rotulo: "Feito em", valor: feitoEm }, ...fichaFixa];
+export function SecaoContato() {
+  const ficha = fichaFixa;
   const [copiado, setCopiado] = useState(false);
 
   const copiar = async () => {
