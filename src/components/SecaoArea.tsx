@@ -213,7 +213,7 @@ export function SecaoArea() {
         <div className="ar-numeros">
           <div className="ar-numero-principal">
             <strong>
-              <Conta ate={116.5} casas={1} antes="R$ " depois=" mil" />
+              <Conta ate={201.5} casas={1} antes="R$ " depois=" mil" />
             </strong>
             <span className="rotulo-num">em contratos de desenvolvimento que nasceram de Discovery</span>
             <small>

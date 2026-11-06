@@ -23,7 +23,7 @@ const listaCasos: Caso[] = [
     descricao:
       "O agente de pré-venda é uma peça. Este case é o resto: a subárea, as skills de IA de cada etapa e um time que conduz os Discoveries sem mim.",
     numeros: [
-      { valor: "R$ 116,5 mil", rotulo: "em desenvolvimento vindo de Discovery" },
+      { valor: "R$ 201,5 mil", rotulo: "em desenvolvimento vindo de Discovery" },
       { valor: "4", rotulo: "Discoveries conduzidos sem mim" },
       { valor: "8", rotulo: "pessoas usam as skills" },
     ],
