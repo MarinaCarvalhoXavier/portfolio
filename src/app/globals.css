@@ -816,7 +816,7 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 .pvc-numeros { list-style: none; margin: clamp(72px, 10vh, 112px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
 .pvc-numeros li { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; padding-top: 18px; border-top: 1px solid rgba(255, 243, 230, 0.28); }
 .pvc-numeros b { font-family: var(--f-titulo), sans-serif; font-weight: 400; font-size: clamp(48px, 5vw, 84px); line-height: .9; color: #ff7a3d; white-space: nowrap; }
-.pvc-numeros li:first-child b { white-space: normal; max-width: 6.5ch; }
+.pvc-numeros li.quebra b { white-space: normal; max-width: 6.5ch; }
 .pvc-numeros .rotulo { font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); max-width: 24ch; }
 .pvc-numeros .fonte { font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; border: 1px solid rgba(255, 243, 230, 0.3); color: var(--tinta-suave); }
 @media (max-width: 1100px) { .pvc-numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -878,6 +878,57 @@ html[data-rolou] [data-termico] { --calor: 0 !important; }
 .pvc-rodape { margin-top: clamp(72px, 10vh, 112px); padding-top: 24px; border-top: 1px solid rgba(255, 243, 230, 0.14); display: flex; flex-wrap: wrap; align-items: center; gap: 16px 40px; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); }
 .pvc-repo { margin-left: auto; display: inline-flex; align-items: center; height: 44px; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(255, 243, 230, 0.35); color: var(--tinta); text-decoration: none; transition: border-color .15s, color .15s; }
 .pvc-repo:hover { border-color: #ff7a3d; color: #ff7a3d; }
+/* Ordem nova (06/11): números logo abaixo da cabeça, botão do GitHub no topo, limites dentro do bloco de erros */
+.pvc-acoes { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); }
+.pvc-acoes .pvc-repo { margin-left: 0; }
+.pvc-numeros.pvc-numeros-topo { margin-top: clamp(48px, 7vh, 72px); }
+.pvc-bloco.pvc-bloco-perto { margin-top: clamp(64px, 9vh, 96px); }
+.pvc-limites.pvc-limites-junto { margin-top: 56px; padding-top: 32px; border-top: 1px solid rgba(255, 243, 230, 0.14); }
+.pvc-versoes.pvc-versoes-curtas { margin-top: 32px; }
+.pvc-versoes-curtas > li { padding-top: 40px; }
+/* Fluxo vivo: cada etapa leva o vídeo do Notion ao seu trecho */
+.pvc-fluxo-vivo li { cursor: pointer; outline: none; transition: opacity .25s; }
+.pvc-fluxo-vivo li .pvc-faz { transition: color .25s; color: var(--tinta-suave); }
+.pvc-fluxo-vivo li[data-ativa] .pvc-faz { color: var(--tinta); }
+.pvc-fluxo-vivo li[data-ativa] .pvc-quem { box-shadow: 0 0 0 3px rgba(255, 122, 61, 0.28), 0 0 18px rgba(255, 122, 61, 0.45); }
+.pvc-fluxo-vivo li:focus-visible .pvc-faz { text-decoration: underline; text-underline-offset: 4px; }
+.pvc-notion-video { margin: 0; position: sticky; top: 96px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 243, 230, 0.12); background: #0f0e10; }
+.pvc-notion-video video { display: block; width: 100%; aspect-ratio: 5 / 4; height: auto; background: #fff; }
+.pvc-notion-video figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 16px; font-family: var(--f-mono), monospace; font-stretch: 75%; font-size: 11px; line-height: 1.5; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-suave); }
+@media (max-width: 1000px) {
+  .pvc-notion-video { order: -1; top: 72px; z-index: 2; }
+  .pvc-dica { display: none; }
+}
+@media (hover: none) { .pvc-dica { display: none; } }
+/* "Como cheguei aqui": a luz percorre a trajetória, como a linha do tempo de Reclamações.
+   O card 1 acende, a linha enche até o 2, que acende, e assim até a V2, que fica acesa. */
+.pvc-versoes-curtas { --passo: 1.2s; }
+.pvc-versoes-curtas > li::before, .pvc-versoes-curtas > li:nth-child(2)::before { background: rgba(255, 243, 230, 0.18); }
+.pvc-versoes-curtas > li:not(.atual)::after { content: ""; position: absolute; top: 20px; left: 33px; right: -21px; height: 2px; background: #ff7a3d; }
+.pvc-versoes-curtas.anima > li { opacity: 1; translate: 0 0; }
+.pvc-versoes-curtas.anima > li:not(.atual)::after { clip-path: inset(0 100% 0 0); transition: clip-path 1s cubic-bezier(.65, 0, .35, 1) calc(.45s + var(--i) * var(--passo)); }
+.pvc-versoes-curtas.anima.ativa > li:not(.atual)::after { clip-path: inset(0 0 0 0); }
+.pvc-versoes-curtas.anima > li .pvc-marco { background: #a9a49d; box-shadow: none; transition: background .35s ease calc(.3s + var(--i) * var(--passo)), box-shadow .5s ease calc(.3s + var(--i) * var(--passo)); }
+.pvc-versoes-curtas.anima.ativa > li .pvc-marco { background: #ff7a3d; box-shadow: 0 0 18px rgba(255, 122, 61, 0.8); }
+.pvc-versoes-curtas.anima > li .pvc-versao-id, .pvc-versoes-curtas.anima > li .pvc-versao-num b, .pvc-versoes-curtas.anima > li .pvc-versao-pe > span { color: #cfc9c1; transition: color .4s ease calc(.3s + var(--i) * var(--passo)); }
+.pvc-versoes-curtas.anima.ativa > li .pvc-versao-id, .pvc-versoes-curtas.anima.ativa > li .pvc-versao-num b, .pvc-versoes-curtas.anima.ativa > li.atual .pvc-versao-pe > span { color: #ff7a3d; }
+.pvc-versoes-curtas.anima.ativa > li:not(.atual) .pvc-versao-num b { color: #ffb48a; }
+.pvc-versoes-curtas.anima.ativa > li:not(.atual) { animation: pvc-passa calc(var(--passo) + .4s) ease calc(.3s + var(--i) * var(--passo)) both; }
+@keyframes pvc-passa {
+  0% { border-color: rgba(255, 243, 230, 0.12); box-shadow: 0 0 0 rgba(255, 122, 61, 0); }
+  30% { border-color: #ff7a3d; box-shadow: 0 0 40px rgba(255, 122, 61, 0.22); }
+  100% { border-color: rgba(255, 122, 61, 0.3); box-shadow: 0 0 0 rgba(255, 122, 61, 0); }
+}
+.pvc-versoes-curtas.anima > li.atual { background: #0f0e10; border-color: rgba(255, 243, 230, 0.12); box-shadow: none; transition: background .6s ease calc(.3s + 2 * var(--passo)), border-color .5s ease calc(.3s + 2 * var(--passo)), box-shadow .8s ease calc(.3s + 2 * var(--passo)); }
+.pvc-versoes-curtas.anima.ativa > li.atual { background: #170b05; border-color: #ff7a3d; box-shadow: 0 0 40px rgba(255, 122, 61, 0.18); }
+@media (max-width: 900px) {
+  .pvc-versoes-curtas > li:not(.atual)::after { top: auto; bottom: -21px; left: 32px; right: auto; width: 2px; height: 22px; }
+  .pvc-versoes-curtas.anima > li:not(.atual)::after { clip-path: inset(0 0 100% 0); }
+  .pvc-versoes-curtas.anima.ativa > li:not(.atual)::after { clip-path: inset(0 0 0 0); }
+}
+.pvc-teste { margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: center; padding-bottom: 16px; }
+.pvc-teste .pv-bloco-texto { margin-top: 12px; }
+@media (max-width: 900px) { .pvc-teste { grid-template-columns: 1fr; } }
 
 /* Pré-venda: grade das rodadas de preço (um círculo por rodada, com as semanas calculadas) */
 .pvc-rodadas { margin-top: 12px; padding: 22px; border-radius: 16px; background: #0d0814; border: 1px solid rgba(255, 243, 230, 0.12); }
